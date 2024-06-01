@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+    <title>Video demo</title>
+
+    <style>
+
+        /* Ensuring the video stretches to fill the entire viewport */
+
+        body, html {
+
+            margin: 0;
+
+            padding: 0;
+
+            height: 100%;
+
+            overflow: hidden;
+
+        }
+
+        video {
+
+            width: 100vw;
+
+            height: 100vh;
+
+            object-fit: cover; /* This ensures the video covers the full viewport without distortion */
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+
+<video controls autoplay>
+
+    <source src="video.mp4" type="video/mp4">
+
+    Your browser does not support the video tag.
+
+</video>
+
+
+
+<script>
+
+    // Access the video element
+
+    var video = document.querySelector("video");
+
+
+
+    // Function to request fullscreen on video play
+
+    video.onplay = function() {
+
+        if (video.requestFullscreen) {
+
+            video.requestFullscreen();
+
+        } else if (video.webkitRequestFullscreen) { /* Safari */
+
+            video.webkitRequestFullscreen();
+
+        } else if (video.msRequestFullscreen) { /* IE11 */
+
+            video.msRequestFullscreen();
+
+        }
+
+    };
+
+</script>
+
+
+
+</body>
+
+</html>
